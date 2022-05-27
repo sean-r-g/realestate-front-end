@@ -19,8 +19,8 @@ function App() {
   return (
     <>
       <h1>Okeke-Gillis Realty</h1>
-      <Houses house={house}/>
-      <Condos condo={condo}/>
+      <Houses/>
+      <Condos/>
     </>
   );
 }

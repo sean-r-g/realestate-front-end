@@ -1,38 +1,60 @@
-.App {
+h1 {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#new-form-div {
+  display: flex;
+  margin-top: 10px;
+  padding-left: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#new-form input{
+  width: 250px;
+}
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.condo-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.condo-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: solid 1px black;
+  padding: 10px;
+  width: 400px;
 }
-
-.App-link {
-  color: #61dafb;
+.condo-card img{
+  width: 50%;
+  align-self: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.condo-card h4, h3{
+  margin: 5px;
+}
+.condo-card h3 {
+  text-decoration: underline;
+}
+#edit-btn {
+  align-self: center;
+}
+.edit-div {
+  display: flex;
+  margin-top: 10px;
+}
+.edit-div form input{
+  width: 250px;
+}
+#save-changes-btn {
+  width: 100%;
+}
+.delete {
+  margin-top: 35px;
+  width: 100%;
 }
