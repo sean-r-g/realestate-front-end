@@ -148,6 +148,7 @@ useEffect(()=>{
                   <label>Rooms: <input type='number' placeholder={condo.rooms} onChange={handleNewRooms}/></label><br/>
                   <label>Bathrooms: <input type='number' placeholder={condo.bath} onChange={handleNewBath}/></label><br/>
                   <input id='save-changes-btn'type='submit' value="Save Changes"/><br/>
+                  <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(condo)}}>Cancel</button>
                   <button className='delete' onClick={(event) => {handleCondoDelete(condo)}}>Remove Listing</button>
                 </form>
                 

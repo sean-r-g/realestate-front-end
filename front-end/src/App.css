@@ -55,6 +55,17 @@ label {
   width: 100%;
 }
 .delete {
+  display: block;
   margin-top: 35px;
-  width: 100%;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#cancel-btn {
+  display: block;
+  margin-top: 15px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
