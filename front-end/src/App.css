@@ -29,6 +29,7 @@ label {
   flex-direction: column;
   border: solid 1px black;
   padding: 10px;
+  margin: 5px;
   width: 400px;
 }
 .condo-card img{
