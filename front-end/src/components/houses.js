@@ -66,7 +66,16 @@ const Houses = (props) => {
     })
   }
 
-  const handleHousesUpdate = (event, houseData) => {
+  const handleHouseDelete = (houseData) => {
+    axios.delete(`http://localhost:3000/houses/${houseData._id}`).then(() =>{
+      axios.get('http://localhost:3000/houses').then((response) => {
+        setHouses(response.data)
+      })
+    })
+  }
+
+
+  const handleHouseUpdate = (event, houseData) => {
     event.preventDefault()
       axios
       .put(`http://localhost:3000/houses/${houseData._id}`,
@@ -77,7 +86,8 @@ const Houses = (props) => {
         size: size,
         rooms: roomsNum,
         bath: bathNum,
-        image: newImage
+        image: newImage,
+
       }).then(() => {
           axios
             .get('http://localhost:3000/houses')
@@ -87,11 +97,31 @@ const Houses = (props) => {
       })
   }
 
-  
-
+  const show = (event, houseData) => {
+    event.preventDefault()
+      axios
+        .put(`http://localhost:3000/houses/${houseData._id}`,
+        {
+          name: houseData.name,
+          location: houseData.location,
+          price: houseData.price,
+          size: houseData.size,
+          rooms: houseData.rooms,
+          bath: houseData.bath,
+          image: houseData.image,
+          showEdit: !houseData.showEdit,
+        }
+      ).then(() => {
+        axios
+          .get('http://localhost:3000/houses')
+          .then((response) => {
+            setHouses(response.data)
+          })
+      })
+    }
 
   useEffect(() => {
-    axios.get('http://localhost:3000/albums').then((response) => {
+    axios.get('http://localhost:3000/houses').then((response) => {
       setHouses(response.data)
     })
   }, [])
@@ -113,21 +143,32 @@ const Houses = (props) => {
       </section>
       <section className='container'>
         {houses.map((house) => {
-          return (
-            <div className='card' key={houses._id}>
+          return <div key={houses._id}>
+              <div className='house-card' >
               <img src={house.image}/>
               <h2>{house.name}</h2>
               <h3>Location: {house.location}</h3>
-              <h3>Price: {house.price}</h3>
-              <h3>Size: {house.size}</h3>
+              <h3>Price: ${house.price}</h3>
+              <h3>Size: {house.size} sq ft</h3>
               <h3>{house.rooms} Rooms, {house.bath} bathrooms</h3>
               {house.available ? <h4>Status: Available</h4> : <h4>Status: Unavailable</h4>}
-              <button id='edit-btn'>Edit Listing</button>
-                <form>
-
-                </form>
+              <button id='edit-btn' onClick={(event) =>{
+                show(event, house)
+              }}>Edit Listing</button>
+              </div>
+              {house.show ? <form onSubmit={(event) => {
+                handleHouseUpdate(event, house)
+              }}>
+                <input defaultValue={house.image} onChange={handleNewImage} type='text'/>
+                <input defaultValue={house.name} onChange={handleNewName} text="text"/>
+                <input defaultValue={house.location} onChange={handleNewAddress} text="text"/>
+                <input defaultValue={house.price} onChange={handleNewPrice} text="text"/>
+                <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/>
+                <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/>
+                <input defaultValue={house.size} onChange={handleNewSize} text="text"/>
+                
+              </form> :null}  
             </div>
-          )
         })}
       </section>
     </main>
