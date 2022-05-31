@@ -1,0 +1,102 @@
+body {
+  background-color: gainsboro;
+}
+h1 {
+  text-align: center;
+}
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  top: 0;
+  background-color: #fff7e2;
+}
+.display-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.primary-div {
+  margin-top: 210px;
+}
+h2 {
+  text-align: center;
+}
+#new-form-div {
+  display: flex;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+#new-form input{
+  width: 250px;
+}
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.condo-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.condo-card {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #4c102a;
+  padding: 10px;
+  margin: 5px;
+  width: 400px;
+  opacity: .65;
+  background-color: #fff7e2;
+  border-radius: 25px;
+  color: #4c102a;
+  box-shadow: 2px 2px 2px #4c102a;
+}
+.condo-card:hover{
+  opacity: 1;
+}
+.condo-card img{
+  width: 50%;
+  align-self: center;
+}
+.condo-card h4, h3{
+  margin: 5px;
+}
+.condo-card h3 {
+  text-decoration: underline;
+}
+#edit-btn {
+  align-self: center;
+}
+.edit-div {
+  display: flex;
+  margin-top: 10px;
+}
+.edit-div form input{
+  width: 250px;
+}
+#save-changes-btn {
+  width: 100%;
+}
+.delete {
+  display: block;
+  margin-top: 35px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#cancel-btn {
+  display: block;
+  margin-top: 15px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
