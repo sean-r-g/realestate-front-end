@@ -9,18 +9,23 @@ function App() {
 
 
 
+  const [displayHouses, setDisplayHouses] = useState(true)
 
 
-
-
+  const toggleDisplay = () =>{
+    displayHouses ? setDisplayHouses(false) : setDisplayHouses(true)
+  }
 
 
 
   return (
     <>
-      <h1>Okeke-Gillis Realty</h1>
-      <Houses/>
-      <Condos/>
+      <header>
+      { displayHouses ? <button className='display-btn' onClick={toggleDisplay}>Show Condos</button> : <button className='display-btn' onClick={toggleDisplay}>Show Houses</button>}
+      {/* <h1>Okeke-Gillis Realty</h1> */}
+      <img src='https://i.imgur.com/P163pZY.png'/>
+      </header>
+      { displayHouses ? <Houses/> : <Condos/>}
     </>
   );
 }
