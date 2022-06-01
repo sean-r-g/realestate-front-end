@@ -151,7 +151,6 @@ useEffect(()=>{
                   <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(condo)}}>Cancel</button>
                   <button className='delete' onClick={(event) => {handleCondoDelete(condo)}}>Remove Listing</button>
                 </form>
-                
               </div> : null}
             </div>
           )
