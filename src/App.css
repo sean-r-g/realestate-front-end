@@ -1,5 +1,6 @@
 body {
   background-color: gainsboro;
+  height: 100%;
 }
 h1 {
   text-align: center;
@@ -11,7 +12,16 @@ header {
   justify-content: space-evenly;
   width: 100%;
   top: 0;
-  background-color: #fff7e2;
+  background-image: linear-gradient(to right, #48466d, #5d5a8c);
+  background-color: #5d5a8c;
+}
+#logo {
+  width: 350px;
+  border-radius: 45px;
+}
+button {
+  border-radius: 15px;
+  padding: 5px;
 }
 .display-btn {
   position: absolute;
@@ -116,4 +126,15 @@ label {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+}
+footer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }

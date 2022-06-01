@@ -51,11 +51,14 @@ function App() {
       <header>
       { displayCondos ? <button className='display-btn' onClick={showHouses}>Show Houses</button> : <button className='display-btn' onClick={showCondos}>Show Condos</button>}
       <button id='about-btn' onClick={showIntro}>About</button>
-      <img src='https://i.imgur.com/P163pZY.png'/>
+      <img id='logo' src='https://i.imgur.com/J8OBU5K.png'/>
       </header>
       {displayIntro ? <Introduction/> : null}
       {displayHouses ? <Houses/> : null}
       {displayCondos ? <Condos/> : null}
+      <footer>
+      ©Okeke-Gillis
+      </footer>
     </>
   );
 }
