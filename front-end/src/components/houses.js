@@ -97,27 +97,15 @@ const Houses = (props) => {
       })
   }
 
-  const show = (event, houseData) => {
-    event.preventDefault()
-      axios
-        .put(`http://localhost:3000/houses/${houseData._id}`,
-        {
-          name: houseData.name,
-          location: houseData.location,
-          price: houseData.price,
-          size: houseData.size,
-          rooms: houseData.rooms,
-          bath: houseData.bath,
-          image: houseData.image,
-          showEdit: !houseData.showEdit,
-        }
-      ).then(() => {
-        axios
-          .get('http://localhost:3000/houses')
-          .then((response) => {
-            setHouses(response.data)
-          })
+  const handleEditFormToggle = (houseData, event) => {
+    showEdit ? setShowEdit (false) : setShowEdit (true)
+    axios.put(`http://localhost:3000/houses/${houseData._id}`, {
+      showEdit: showEdit
+    }).then(() => {
+      axios.get('http://localhost:3000/houses').then((response)=>{
+        setHouses(response.data)
       })
+    })
     }
 
   useEffect(() => {
@@ -153,19 +141,22 @@ const Houses = (props) => {
               <h3>{house.rooms} Rooms, {house.bath} bathrooms</h3>
               {house.available ? <h4>Status: Available</h4> : <h4>Status: Unavailable</h4>}
               <button id='edit-btn' onClick={(event) =>{
-                show(event, house)
+                handleEditFormToggle(house)
               }}>Edit Listing</button>
               </div>
-              {house.show ? <form onSubmit={(event) => {
+              {house.showEdit ? <form onSubmit={(event) => {
                 handleHouseUpdate(event, house)
               }}>
-                <input defaultValue={house.image} onChange={handleNewImage} type='text'/>
-                <input defaultValue={house.name} onChange={handleNewName} text="text"/>
-                <input defaultValue={house.location} onChange={handleNewAddress} text="text"/>
-                <input defaultValue={house.price} onChange={handleNewPrice} text="text"/>
-                <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/>
-                <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/>
-                <input defaultValue={house.size} onChange={handleNewSize} text="text"/>
+                <input defaultValue={house.image} onChange={handleNewImage} type='text'/><br/>
+                <input defaultValue={house.name} onChange={handleNewName} text="text"/><br/>
+                <input defaultValue={house.location} onChange={handleNewAddress} text="text"/><br/>
+                <input defaultValue={house.price} onChange={handleNewPrice} text="text"/><br/>
+                <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/><br/>
+                <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/><br/>
+                <input defaultValue={house.size} onChange={handleNewSize} text="text"/><br/>
+                <button className='delete' onClick={(event) =>{
+                  handleHouseDelete(house)
+                }}>Remove Listing</button>
                 
               </form> :null}  
             </div>
