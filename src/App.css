@@ -1,5 +1,8 @@
 body {
   background-color: gainsboro;
+  height: 100%;
+  font-family: 'Paytone One', sans-serif;
+  color: #33324e;
 }
 h1 {
   text-align: center;
@@ -11,7 +14,23 @@ header {
   justify-content: space-evenly;
   width: 100%;
   top: 0;
-  background-color: #fff7e2;
+  background-image: linear-gradient(to right, #48466d, #5d5a8c);
+  background-color: #5d5a8c;
+}
+#logo {
+  width: 350px;
+  border-radius: 45px;
+}
+button {
+  border-radius: 15px;
+  padding: 6px;
+  font-family: 'Paytone One', sans-serif;
+  background-color: #33324e;
+  color: #f5dada
+}
+button:hover {
+  box-shadow: 2px 2px 2px #F7559A;
+  cursor: pointer;
 }
 .display-btn {
   position: absolute;
@@ -20,8 +39,34 @@ header {
   margin-top: 5px;
   margin-left: 5px;
 }
+#about-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  margin-left: 115px;
+}
+#about-div {
+  animation: fadein 2.5s;
+}
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.button-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.button-div button {
+  font-size: 30px;
+}
 .primary-div {
-  margin-top: 210px;
+  margin-top: 110px;
+  padding: 25px;
+  animation: fadein 1s;
+
 }
 h2 {
   text-align: center;
@@ -54,9 +99,9 @@ label {
   margin: 5px;
   width: 400px;
   opacity: .65;
-  background-color: #fff7e2;
+  background-color: #9c98d387;
   border-radius: 25px;
-  color: #4c102a;
+  color: #33324e;
   box-shadow: 2px 2px 2px #4c102a;
 }
 .condo-card:hover{
@@ -99,4 +144,15 @@ label {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+}
+footer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
