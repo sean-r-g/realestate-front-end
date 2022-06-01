@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const Condos = (props) => {
 
-  //////////HOOKS/////////////////////////////////////////////////////
+  //////////HOOKS///////////////////////////////////////////////////////
   const [condos, setCondos] = useState([])
   const [newName, setNewName] = useState()
   const [newlocation, setNewLocation] = useState()
