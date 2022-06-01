@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.house-container{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.house-card{
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #4c102a;
+  padding: 10px;
+  margin: 5px;
+  width: 400px;
+  opacity: ;
+  background-color: #fff7e2;
+  border-radius: 25px;
+  color: #4c102a;
+  box-shadow: 2px 2px 2px #4c102a;
+}
+.house-card img{
+  width: 50%;
+  align-self:center;
+}

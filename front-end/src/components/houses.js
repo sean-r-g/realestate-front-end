@@ -129,7 +129,7 @@ const Houses = (props) => {
           <input type="submit" value="Create New Listing"/><br/>     
         </form>
       </section>
-      <section className='container'>
+      <section className='house-container'>
         {houses.map((house) => {
           return <div key={houses._id}>
               <div className='house-card' >
@@ -143,7 +143,7 @@ const Houses = (props) => {
               <button id='edit-btn' onClick={(event) =>{
                 handleEditFormToggle(house)
               }}>Edit Listing</button>
-              </div>
+              
               {house.showEdit ? <form onSubmit={(event) => {
                 handleHouseUpdate(event, house)
               }}>
@@ -154,11 +154,14 @@ const Houses = (props) => {
                 <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/><br/>
                 <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/><br/>
                 <input defaultValue={house.size} onChange={handleNewSize} text="text"/><br/>
+                <input id='save-change-btn' type='submit' value="Save Changes"/><br/>
+                <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(house)}}>Cancel</button>
                 <button className='delete' onClick={(event) =>{
                   handleHouseDelete(house)
                 }}>Remove Listing</button>
                 
-              </form> :null}  
+              </form> :null} 
+              </div> 
             </div>
         })}
       </section>
