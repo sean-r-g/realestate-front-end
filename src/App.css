@@ -1,6 +1,8 @@
 body {
   background-color: gainsboro;
   height: 100%;
+  font-family: 'Paytone One', sans-serif;
+  color: #33324e;
 }
 h1 {
   text-align: center;
@@ -21,7 +23,14 @@ header {
 }
 button {
   border-radius: 15px;
-  padding: 5px;
+  padding: 6px;
+  font-family: 'Paytone One', sans-serif;
+  background-color: #33324e;
+  color: #ffffff
+}
+button:hover {
+  box-shadow: 2px 2px 2px #F7559A;
+  cursor: pointer;
 }
 .display-btn {
   position: absolute;
@@ -35,7 +44,14 @@ button {
   top: 0;
   left: 0;
   margin-top: 5px;
-  margin-left: 105px;
+  margin-left: 115px;
+}
+#about-div {
+  animation: fadein 2.5s;
+}
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 .button-div {
   display: flex;
@@ -47,8 +63,10 @@ button {
   font-size: 30px;
 }
 .primary-div {
-  margin-top: 210px;
+  margin-top: 110px;
   padding: 25px;
+  animation: fadein 1s;
+
 }
 h2 {
   text-align: center;
@@ -81,9 +99,9 @@ label {
   margin: 5px;
   width: 400px;
   opacity: .65;
-  background-color: #fff7e2;
+  background-color: #9c98d387;
   border-radius: 25px;
-  color: #4c102a;
+  color: #33324e;
   box-shadow: 2px 2px 2px #4c102a;
 }
 .condo-card:hover{

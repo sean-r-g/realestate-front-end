@@ -113,7 +113,7 @@ useEffect(()=>{
 ////////////////JSX////////////////////////////////////
   return (
     <div className='primary-div'>
-      <h2>Condo Listings</h2>
+      <h1>Condo Listings</h1>
       <button onClick={handleNewFormToggle}>Add New Listing</button>
       {showNewForm ? <div id='new-form-div'>
         <form id='new-form' onSubmit={handleNewCondoSubmit}>

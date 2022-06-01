@@ -32,8 +32,8 @@ function App() {
 
   const Introduction = () =>{
     return (
-      <div className='primary-div'>
-        <h2>About our platform...</h2>
+      <div className='primary-div' id='about-div'>
+        <h1>About our platform...</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est augue, placerat id nisl at, pretium accumsan ligula. Praesent dictum justo ante, et iaculis lorem euismod id. Pellentesque dictum neque malesuada viverra laoreet. Aliquam libero turpis, consectetur a metus vitae, suscipit porta lorem. Vivamus mollis, odio at fringilla finibus, ante justo tincidunt sapien, in pellentesque purus nisi ut turpis. Aenean porttitor sem felis, quis finibus ligula vehicula in. Nulla sed ultrices nibh. Nullam a leo dui.</p>
         <p>Maecenas vitae ex diam. Nulla facilisi. Ut sed ante mi. Aenean quis libero gravida, semper elit ac, tincidunt ligula. Mauris sit amet eros hendrerit, euismod arcu ut, fermentum ipsum. Curabitur vitae congue magna, sed hendrerit sapien. Aliquam lobortis gravida congue. Phasellus maximus tempor odio et vestibulum. Nullam quam sapien, euismod eleifend lacinia nec, sodales vel enim. Etiam ut iaculis ante, eget vehicula est. In viverra eget sem non luctus. Pellentesque leo ligula, dictum in accumsan vitae, bibendum non ex.
         </p>
@@ -48,6 +48,9 @@ function App() {
 
   return (
     <>
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+      </style>
       <header>
       { displayCondos ? <button className='display-btn' onClick={showHouses}>Show Houses</button> : <button className='display-btn' onClick={showCondos}>Show Condos</button>}
       <button id='about-btn' onClick={showIntro}>About</button>
