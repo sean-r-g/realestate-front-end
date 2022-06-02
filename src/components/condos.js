@@ -47,7 +47,7 @@ const Condos = (props) => {
 /////////////CREATE, UPDATE, DELETE////////////////////////////
 const handleNewCondoSubmit = (event) =>{
   event.preventDefault()
-  axios.post('http://real-estate-back-end.herokuapp/condos', {
+  axios.post('https://real-estate-back-end.herokuapp.com/condos', {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -58,7 +58,7 @@ const handleNewCondoSubmit = (event) =>{
     available: newAvailable,
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('http://real-estate-back-end.herokuapp/condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -66,7 +66,7 @@ const handleNewCondoSubmit = (event) =>{
 
 const handleCondoUpdateSubmit = (event, condoData) =>{
   event.preventDefault()
-  axios.put(`http://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
+  axios.put(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -74,15 +74,15 @@ const handleCondoUpdateSubmit = (event, condoData) =>{
     rooms: newRooms,
     bath: newBath,
   }).then(()=>{
-    axios.get('http://real-estate-back-end.herokuapp/condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
 }
 
 const handleCondoDelete = (condoData) =>{
-  axios.delete(`http://real-estate-back-end.herokuapp/condos/${condoData._id}`).then(()=>{
-    axios.get('http://real-estate-back-end.herokuapp/condos').then((response)=>{
+  axios.delete(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`).then(()=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -94,10 +94,10 @@ const handleNewFormToggle = (event) =>{
 }
 const handleEditFormToggle = (condoData, event) =>{
   newShowEdit ? setNewShowEdit(false) : setNewShowEdit(true)
-  axios.put(`http://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
+  axios.put(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('http://real-estate-back-end.herokuapp/condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -105,7 +105,7 @@ const handleEditFormToggle = (condoData, event) =>{
 
 ////////////USE EFFECT/////////////////////
 useEffect(()=>{
-  axios.get('http://real-estate-back-end.herokuapp/condos').then((response)=>{
+  axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
     setCondos(response.data)
   })
 })
