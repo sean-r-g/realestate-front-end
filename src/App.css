@@ -190,6 +190,9 @@ footer {
 .house-card:hover{
   opacity: 1;
 }
-.house-card h2{
+.house-card h3{
   text-decoration: underline;
+}
+.house-card h4, h3{
+  margin: 5px;
 }
