@@ -134,7 +134,7 @@ useEffect(()=>{
           <label>Rooms: <input type='number' onChange={handleNewRooms}/></label><br/>
           <label>Bathrooms: <input type='number' onChange={handleNewBath}/></label><br/>
           <label>Image: <input type='url' onChange={handleNewImage}/></label><br/>
-          <input type='submit' value="Create New Listing"/>
+          <input id='save-changes-btn' type='submit' value="Create New Listing"/>
         </form>
       </div> : null}
       <div className='condo-container'>
@@ -158,7 +158,7 @@ useEffect(()=>{
                   <label>Rooms: <input type='number' placeholder={condo.rooms} onChange={handleNewRooms}/></label><br/>
                   <label>Bathrooms: <input type='number' placeholder={condo.bath} onChange={handleNewBath}/></label><br/>
                   { condo.available ? <button id='status-btn' onClick={(event) => {handleNewStatus(condo)}}>Set Status: Unavailable</button> : <button id='status-btn' onClick={(event) => {handleNewStatus(condo)}}>Set Status: Available</button> }
-                  <input id='save-changes-btn'type='submit' value="Save Changes"/><br/>
+                  <input id='save-changes-btn' type='submit' value="Save Changes"/><br/>
                   <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(condo)}}>Cancel</button>
                   <button className='delete' onClick={(event) => {handleCondoDelete(condo)}}>Remove Listing</button>
                 </form>

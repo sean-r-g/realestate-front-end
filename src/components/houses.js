@@ -146,7 +146,7 @@ const Houses = (props) => {
           <label>Rooms: <input onChange={handleNewRoomsNum} type='number'/></label><br/>         
           <label>Bathrooms: <input onChange={handleNewBathsNum} type='number'/></label><br/>         
           <label>Image: <input onChange={handleNewImage} type='text'/></label><br/>          
-          <input type="submit" value="Create New Listing"/><br/>     
+          <input id='save-changes-btn' type="submit" value="Create New Listing"/><br/>     
         </form>
       </section>
       </div> :null}
