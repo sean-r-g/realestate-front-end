@@ -49,7 +49,7 @@ const Houses = (props) => {
   const handleNewHouseSubmit = (event) => {
     event.preventDefault()
     axios.post(
-      'https://real-estate-back-end.herokuapp.com//houses', {
+      'https://real-estate-back-end.herokuapp.com/houses', {
         name: newName,
         location: newAddress,
         price: price,
@@ -61,15 +61,15 @@ const Houses = (props) => {
         showEdit: showEdit
       }
     ).then(() => {
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
         setHouses(response.data)
       })
     })
   }
 
   const handleHouseDelete = (houseData) => {
-    axios.delete(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`).then(() =>{
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+    axios.delete(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`).then(() =>{
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
         setHouses(response.data)
       })
     })
@@ -79,7 +79,7 @@ const Houses = (props) => {
   const handleHouseUpdate = (event, houseData) => {
     event.preventDefault()
       axios
-      .put(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`,
+      .put(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`,
       {
         name: newName,
         location: newAddress,
@@ -91,7 +91,7 @@ const Houses = (props) => {
 
       }).then(() => {
           axios
-            .get('https://real-estate-back-end.herokuapp.com//houses')
+            .get('https://real-estate-back-end.herokuapp.com/houses')
             .then((response) => {
               setHouses(response.data)
             })
@@ -106,17 +106,17 @@ const Houses = (props) => {
 
   const handleEditFormToggle = (houseData, event) => {
     showEdit ? setShowEdit (false) : setShowEdit (true)
-    axios.put(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`, {
+    axios.put(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`, {
       showEdit: showEdit
     }).then(() => {
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response)=>{
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response)=>{
         setHouses(response.data)
       })
     })
     }
 
   useEffect(() => {
-    axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+    axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
       setHouses(response.data)
     })
   }, [])
