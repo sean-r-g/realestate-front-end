@@ -67,7 +67,7 @@ const handleNewCondoSubmit = (event) =>{
 
 const handleCondoUpdateSubmit = (event, condoData) =>{
   event.preventDefault()
-  axios.put(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
+  axios.put(`http://localhost:3000/condos/${condoData._id}`, {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -82,7 +82,7 @@ const handleCondoUpdateSubmit = (event, condoData) =>{
 }
 
 const handleCondoDelete = (condoData) =>{
-  axios.delete(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`).then(()=>{
+  axios.delete(`http://localhost:3000/condos/${condoData._id}`).then(()=>{
     axios.get('http://localhost:3000/condos').then((response)=>{
       setCondos(response.data)
     })
@@ -95,7 +95,7 @@ const handleNewFormToggle = (event) =>{
 }
 const handleEditFormToggle = (condoData, event) =>{
   newShowEdit ? setNewShowEdit(false) : setNewShowEdit(true)
-  axios.put(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
+  axios.put(`http://localhost:3000/condos/${condoData._id}`, {
     showEdit: newShowEdit
   }).then(()=>{
     axios.get('http://localhost:3000/condos').then((response)=>{
