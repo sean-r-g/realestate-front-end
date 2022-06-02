@@ -7,8 +7,6 @@ import Condos from './components/condos'
 
 function App() {
 
-
-
   const [displayHouses, setDisplayHouses] = useState(false)
   const [displayCondos, setDisplayCondos] = useState(false)
   const [displayIntro, setDisplayIntro] = useState(true)

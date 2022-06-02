@@ -103,6 +103,16 @@ const handleEditFormToggle = (condoData, event) =>{
   })
 }
 
+const handleNewStatus = (condoData, event) =>{
+  newAvailable ? setNewAvailable(false) : setNewAvailable(true)
+  axios.put(`https://real-estate-back-end.herokuapp.com/condos/${condoData._id}`, {
+    available: newAvailable
+  }).then(()=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+      setCondos(response.data)
+    })
+  })
+}
 ////////////USE EFFECT/////////////////////
 useEffect(()=>{
   axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
@@ -147,6 +157,7 @@ useEffect(()=>{
                   <label>Size (sqft) <input type='text' placeholder={condo.size} onChange={handleNewSize}/></label><br/>
                   <label>Rooms: <input type='number' placeholder={condo.rooms} onChange={handleNewRooms}/></label><br/>
                   <label>Bathrooms: <input type='number' placeholder={condo.bath} onChange={handleNewBath}/></label><br/>
+                  <button id='status-btn' onClick={(event) => {handleNewStatus(condo)}}>Set Status: Unavailable</button>
                   <input id='save-changes-btn'type='submit' value="Save Changes"/><br/>
                   <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(condo)}}>Cancel</button>
                   <button className='delete' onClick={(event) => {handleCondoDelete(condo)}}>Remove Listing</button>

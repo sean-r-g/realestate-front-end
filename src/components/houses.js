@@ -164,7 +164,7 @@ const Houses = (props) => {
                 <label>Rooms: <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/></label><br/>
                 <label>Bathrooms: <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/></label><br/>
                 <label>Image: <input defaultValue={house.image} onChange={handleNewImage} type='text'/></label><br/>
-                <input id='save-change-btn' type='submit' value="Save Changes"/><br/>
+                <input id='save-changes-btn' type='submit' value="Save Changes"/><br/>
                 <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(house)}}>Cancel</button>
                 <button className='delete' onClick={(event) =>{
                   handleHouseDelete(house)
