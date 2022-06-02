@@ -44,10 +44,11 @@ const Condos = (props) => {
     setNewAvailable(event.target.value)
   }
 /////////////////////////////////////////////////////////
-/////////////CREATE, UPDATE, DELETE////////////////////////////
+
+/////////////CREATE, UPDATE, DELETE//////////////////////////// 
 const handleNewCondoSubmit = (event) =>{
   event.preventDefault()
-  axios.post('https://real-estate-back-end.herokuapp.com/condos', {
+  axios.post('http://localhost:3000/condos', {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -58,7 +59,7 @@ const handleNewCondoSubmit = (event) =>{
     available: newAvailable,
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+    axios.get('http://localhost:3000/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -74,7 +75,7 @@ const handleCondoUpdateSubmit = (event, condoData) =>{
     rooms: newRooms,
     bath: newBath,
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+    axios.get('http://localhost:3000/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -82,7 +83,7 @@ const handleCondoUpdateSubmit = (event, condoData) =>{
 
 const handleCondoDelete = (condoData) =>{
   axios.delete(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+    axios.get('http://localhost:3000/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -97,7 +98,7 @@ const handleEditFormToggle = (condoData, event) =>{
   axios.put(`https://real-estate-back-end.herokuapp/condos/${condoData._id}`, {
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+    axios.get('http://localhost:3000/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -105,7 +106,7 @@ const handleEditFormToggle = (condoData, event) =>{
 
 ////////////USE EFFECT/////////////////////
 useEffect(()=>{
-  axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+  axios.get('http://localhost:3000/condos').then((response)=>{
     setCondos(response.data)
   })
 })
