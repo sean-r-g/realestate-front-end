@@ -16,6 +16,7 @@ header {
   top: 0;
   background-image: linear-gradient(to right, #48466d, #5d5a8c);
   background-color: #5d5a8c;
+  z-index: 1;
 }
 #logo {
   width: 350px;
