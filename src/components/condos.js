@@ -44,7 +44,6 @@ const Condos = (props) => {
     setNewAvailable(event.target.value)
   }
 /////////////////////////////////////////////////////////
-
 /////////////CREATE, UPDATE, DELETE//////////////////////////// 
 const handleNewCondoSubmit = (event) =>{
   event.preventDefault()
