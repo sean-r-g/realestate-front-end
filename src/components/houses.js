@@ -14,6 +14,7 @@ const Houses = (props) => {
   const [newImage, setNewImage] = useState ()
   const [newAvailable, setNewAvailable] = useState (true)
   const [showEdit, setShowEdit] = useState (false)
+  const [showNewForm, setShowNewForm] = useState(false)
   const [houses, setHouses] = useState([])
 
   const handleNewImage = (event) => {
@@ -97,6 +98,12 @@ const Houses = (props) => {
       })
   }
 
+  ////////////////////////////////////
+  ///////////Toggles/////////////////
+  const handleNewFormToggle =(event) => {
+    showNewForm ? setShowNewForm(false) : setShowNewForm(true)
+  }
+
   const handleEditFormToggle = (houseData, event) => {
     showEdit ? setShowEdit (false) : setShowEdit (true)
     axios.put(`http://localhost:3000/houses/${houseData._id}`, {
@@ -115,8 +122,10 @@ const Houses = (props) => {
   }, [])
 
   return (
-    <main>
-      <h1>List a House</h1>
+    <div className="primary-div">
+      <h1>House Listing</h1>
+      <button onClick={handleNewFormToggle}>Add New Listing</button>
+      {showNewForm ? <div id='new-form-div'>
       <section>
         <form onSubmit={handleNewHouseSubmit}>
           <input placeholder='Image Link' onChange={handleNewImage} type='text'/><br/>         
@@ -129,6 +138,7 @@ const Houses = (props) => {
           <input type="submit" value="Create New Listing"/><br/>     
         </form>
       </section>
+      </div> :null}
       <section className='house-container'>
         {houses.map((house) => {
           return <div key={houses._id}>
@@ -165,7 +175,7 @@ const Houses = (props) => {
             </div>
         })}
       </section>
-    </main>
+    </div>
   )
 
 }
