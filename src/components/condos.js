@@ -135,6 +135,7 @@ useEffect(()=>{
           <label>Bathrooms: <input type='number' onChange={handleNewBath}/></label><br/>
           <label>Image: <input type='url' onChange={handleNewImage}/></label><br/>
           <input id='save-changes-btn' type='submit' value="Create New Listing"/>
+          <button id='cancel-btn' onClick={ (event) => {handleNewFormToggle(event)}}>Cancel</button>
         </form>
       </div> : null}
       <div className='condo-container'>

@@ -146,7 +146,8 @@ const Houses = (props) => {
           <label>Rooms: <input onChange={handleNewRoomsNum} type='number'/></label><br/>         
           <label>Bathrooms: <input onChange={handleNewBathsNum} type='number'/></label><br/>         
           <label>Image: <input onChange={handleNewImage} type='text'/></label><br/>          
-          <input id='save-changes-btn' type="submit" value="Create New Listing"/><br/>     
+          <input id='save-changes-btn' type="submit" value="Create New Listing"/><br/>
+          <button id='cancel-btn' onClick={ (event) => {handleNewFormToggle(event)}}>Cancel</button>     
         </form>
       </section>
       </div> :null}

@@ -134,6 +134,10 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
+#save-changes-btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #F7559A;
+}
 .delete {
   display: block;
   margin-top: 35px;
