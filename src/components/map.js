@@ -93,14 +93,14 @@ const Map = () => {
       <button class="button-cta">Search</button>
     </div>
     <div class="map" id="gmp-map">
-    {/* <iframe
+    <iframe
       width="700"
       height="500"
       frameBorder="0" 
       referrerPolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps/embed/v1/search?key=AIzaSyABKbDi5X2OD3YBUhfivhusSreZHRPzir4&q=place.geometry.location" 
       allowFullScreen>
-    </iframe> */}
+    </iframe>
     </div>
   </div>
   <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyABKbDi5X2OD3YBUhfivhusSreZHRPzir4&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cABC' async defer></script> 
