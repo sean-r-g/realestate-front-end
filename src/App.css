@@ -200,3 +200,20 @@ footer {
 .house-card h4, h3{
   margin: 5px;
 }
+
+@media only screen and (max-width: 750px) {
+  #logo {
+    margin-top: 5px;
+    width: 150px;
+    top: 0;
+    right: 0;
+    /* position: absolute; */
+  }
+  input {
+    width: 100px;
+  }
+  header {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
