@@ -30,6 +30,7 @@ function App() {
   }
 
   const Introduction = () =>{
+    $(() => {
       let currentImgIndex = 0
       let numOfImages = $('.project-screenshots').children().length - 1
     
@@ -52,6 +53,7 @@ function App() {
         }
         $('.project-screenshots').children().eq(currentImgIndex).css('display', 'block')
       })
+    })
 
     return (
       <div className='primary-div' id='about-div'>
@@ -67,7 +69,7 @@ function App() {
           <div class='slides-container'>
             <div class='previous'>
               <span>
-                <a href="#" class="previousbtn">&laquo;</a>
+                <a href="#" class="previousbtn">&#8678;</a>
               </span>
             </div>
             <div class='project-screenshots'>
@@ -83,7 +85,7 @@ function App() {
             </div>
             <div class='next'>
               <span>
-                <a href="#" class="nextbtn">&raquo;</a>
+                <a href="#" class="nextbtn">&#8680;</a>
               </span>
             </div>
           </div>
