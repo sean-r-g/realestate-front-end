@@ -7,8 +7,6 @@ import Condos from './components/condos'
 
 function App() {
 
-
-
   const [displayHouses, setDisplayHouses] = useState(false)
   const [displayCondos, setDisplayCondos] = useState(false)
   const [displayIntro, setDisplayIntro] = useState(true)
@@ -78,7 +76,7 @@ function App() {
       @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
       </style>
       <header>
-      { displayCondos ? <button className='display-btn' onClick={showHouses}>Show Houses</button> : <button className='display-btn' onClick={showCondos}>Show Condos</button>}
+      { displayHouses ? <button className='display-btn' onClick={showCondos}>Show Condos</button> : <button className='display-btn' onClick={showHouses}>Show Houses</button>}
       <button id='about-btn' onClick={showIntro}>About</button>
       <img id='logo' src='https://i.imgur.com/J8OBU5K.png'/>
       </header>

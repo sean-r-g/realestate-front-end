@@ -22,12 +22,12 @@ header {
   width: 350px;
   border-radius: 45px;
 }
-button {
+button, #save-changes-btn {
   border-radius: 15px;
   padding: 6px;
   font-family: 'Paytone One', sans-serif;
   background-color: #33324e;
-  color: #f5dada
+  color: #f5dada;
 }
 button:hover {
   box-shadow: 2px 2px 2px #F7559A;
@@ -70,7 +70,6 @@ button:hover {
   margin-top: 110px;
   padding: 25px;
   animation: fadein 1s;
-
 }
 h2 {
   text-align: center;
@@ -132,7 +131,14 @@ label {
   width: 250px;
 }
 #save-changes-btn {
-  width: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#save-changes-btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #F7559A;
 }
 .delete {
   display: block;
@@ -140,11 +146,19 @@ label {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+  background-color: #F7559A;
 
 }
 #cancel-btn {
   display: block;
   margin-top: 15px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+#status-btn {
+  display: block;
+  margin-bottom: 15px;
   width: auto;
   margin-left: auto;
   margin-right: auto;
@@ -182,6 +196,26 @@ footer {
 .house-card:hover{
   opacity: 1;
 }
-.house-card h2{
+.house-card h3{
   text-decoration: underline;
+}
+.house-card h4, h3{
+  margin: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  #logo {
+    margin-top: 5px;
+    width: 150px;
+    top: 0;
+    right: 0;
+    /* position: absolute; */
+  }
+  input {
+    width: 100px;
+  }
+  header {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
