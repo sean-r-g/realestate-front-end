@@ -44,10 +44,10 @@ const Condos = (props) => {
     setNewAvailable(event.target.value)
   }
 /////////////////////////////////////////////////////////
-/////////////CREATE, UPDATE, DELETE////////////////////////////
+/////////////CREATE, UPDATE, DELETE//////////////////////////// 
 const handleNewCondoSubmit = (event) =>{
   event.preventDefault()
-  axios.post('https://real-estate-back-end.herokuapp.com//condos', {
+  axios.post('https://real-estate-back-end.herokuapp.com/condos', {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -58,7 +58,7 @@ const handleNewCondoSubmit = (event) =>{
     available: newAvailable,
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com//condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -66,7 +66,7 @@ const handleNewCondoSubmit = (event) =>{
 
 const handleCondoUpdateSubmit = (event, condoData) =>{
   event.preventDefault()
-  axios.put(`https://real-estate-back-end.herokuapp.com//condos/${condoData._id}`, {
+  axios.put(`https://real-estate-back-end.herokuapp.com/condos/${condoData._id}`, {
     name: newName,
     location: newlocation,
     price: newPrice,
@@ -74,15 +74,15 @@ const handleCondoUpdateSubmit = (event, condoData) =>{
     rooms: newRooms,
     bath: newBath,
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com//condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
 }
 
 const handleCondoDelete = (condoData) =>{
-  axios.delete(`https://real-estate-back-end.herokuapp.com//condos/${condoData._id}`).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com//condos').then((response)=>{
+  axios.delete(`https://real-estate-back-end.herokuapp.com/condos/${condoData._id}`).then(()=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
@@ -94,18 +94,28 @@ const handleNewFormToggle = (event) =>{
 }
 const handleEditFormToggle = (condoData, event) =>{
   newShowEdit ? setNewShowEdit(false) : setNewShowEdit(true)
-  axios.put(`https://real-estate-back-end.herokuapp.com//condos/${condoData._id}`, {
+  axios.put(`https://real-estate-back-end.herokuapp.com/condos/${condoData._id}`, {
     showEdit: newShowEdit
   }).then(()=>{
-    axios.get('https://real-estate-back-end.herokuapp.com//condos').then((response)=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
       setCondos(response.data)
     })
   })
 }
 
+const handleNewStatus = (condoData, event) =>{
+  newAvailable ? setNewAvailable(false) : setNewAvailable(true)
+  axios.put(`https://real-estate-back-end.herokuapp.com/condos/${condoData._id}`, {
+    available: newAvailable
+  }).then(()=>{
+    axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
+      setCondos(response.data)
+    })
+  })
+}
 ////////////USE EFFECT/////////////////////
 useEffect(()=>{
-  axios.get('https://real-estate-back-end.herokuapp.com//condos').then((response)=>{
+  axios.get('https://real-estate-back-end.herokuapp.com/condos').then((response)=>{
     setCondos(response.data)
   })
 })
@@ -124,7 +134,8 @@ useEffect(()=>{
           <label>Rooms: <input type='number' onChange={handleNewRooms}/></label><br/>
           <label>Bathrooms: <input type='number' onChange={handleNewBath}/></label><br/>
           <label>Image: <input type='url' onChange={handleNewImage}/></label><br/>
-          <input type='submit' value="Create New Listing"/>
+          <input id='save-changes-btn' type='submit' value="Create New Listing"/>
+          <button id='cancel-btn' onClick={ (event) => {handleNewFormToggle(event)}}>Cancel</button>
         </form>
       </div> : null}
       <div className='condo-container'>
@@ -147,7 +158,8 @@ useEffect(()=>{
                   <label>Size (sqft) <input type='text' placeholder={condo.size} onChange={handleNewSize}/></label><br/>
                   <label>Rooms: <input type='number' placeholder={condo.rooms} onChange={handleNewRooms}/></label><br/>
                   <label>Bathrooms: <input type='number' placeholder={condo.bath} onChange={handleNewBath}/></label><br/>
-                  <input id='save-changes-btn'type='submit' value="Save Changes"/><br/>
+                  { condo.available ? <button id='status-btn' onClick={(event) => {handleNewStatus(condo)}}>Set Status: Unavailable</button> : <button id='status-btn' onClick={(event) => {handleNewStatus(condo)}}>Set Status: Available</button> }
+                  <input id='save-changes-btn' type='submit' value="Save Changes"/><br/>
                   <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(condo)}}>Cancel</button>
                   <button className='delete' onClick={(event) => {handleCondoDelete(condo)}}>Remove Listing</button>
                 </form>

@@ -49,7 +49,7 @@ const Houses = (props) => {
   const handleNewHouseSubmit = (event) => {
     event.preventDefault()
     axios.post(
-      'https://real-estate-back-end.herokuapp.com//houses', {
+      'https://real-estate-back-end.herokuapp.com/houses', {
         name: newName,
         location: newAddress,
         price: price,
@@ -61,15 +61,15 @@ const Houses = (props) => {
         showEdit: showEdit
       }
     ).then(() => {
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
         setHouses(response.data)
       })
     })
   }
 
   const handleHouseDelete = (houseData) => {
-    axios.delete(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`).then(() =>{
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+    axios.delete(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`).then(() =>{
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
         setHouses(response.data)
       })
     })
@@ -79,7 +79,7 @@ const Houses = (props) => {
   const handleHouseUpdate = (event, houseData) => {
     event.preventDefault()
       axios
-      .put(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`,
+      .put(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`,
       {
         name: newName,
         location: newAddress,
@@ -91,7 +91,7 @@ const Houses = (props) => {
 
       }).then(() => {
           axios
-            .get('https://real-estate-back-end.herokuapp.com//houses')
+            .get('https://real-estate-back-end.herokuapp.com/houses')
             .then((response) => {
               setHouses(response.data)
             })
@@ -106,17 +106,28 @@ const Houses = (props) => {
 
   const handleEditFormToggle = (houseData, event) => {
     showEdit ? setShowEdit (false) : setShowEdit (true)
-    axios.put(`https://real-estate-back-end.herokuapp.com//houses/${houseData._id}`, {
+    axios.put(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`, {
       showEdit: showEdit
     }).then(() => {
-      axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response)=>{
+      axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response)=>{
         setHouses(response.data)
       })
     })
     }
+  
+  const handleNewStatus = (houseData, event) =>{
+    newAvailable ? setNewAvailable(false) : setNewAvailable(true)
+    axios.put(`https://real-estate-back-end.herokuapp.com/houses/${houseData._id}`, {
+      available: newAvailable
+    }).then(()=>{
+        axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response)=>{
+          setHouses(response.data)
+        })
+      })
+    }
 
   useEffect(() => {
-    axios.get('https://real-estate-back-end.herokuapp.com//houses').then((response) => {
+    axios.get('https://real-estate-back-end.herokuapp.com/houses').then((response) => {
       setHouses(response.data)
     })
   }, [])
@@ -135,20 +146,21 @@ const Houses = (props) => {
           <label>Rooms: <input onChange={handleNewRoomsNum} type='number'/></label><br/>         
           <label>Bathrooms: <input onChange={handleNewBathsNum} type='number'/></label><br/>         
           <label>Image: <input onChange={handleNewImage} type='text'/></label><br/>          
-          <input type="submit" value="Create New Listing"/><br/>     
+          <input id='save-changes-btn' type="submit" value="Create New Listing"/><br/>
+          <button id='cancel-btn' onClick={ (event) => {handleNewFormToggle(event)}}>Cancel</button>     
         </form>
       </section>
       </div> :null}
       <section className='house-container'>
         {houses.map((house) => {
-          return <div key={houses._id}>
+          return <div key={house._id}>
               <div className='house-card' >
               <img src={house.image}/>
-              <h2>{house.name}</h2>
-              <h3>Location: {house.location}</h3>
-              <h3>Price: ${house.price}</h3>
-              <h3>Size: {house.size} sq ft</h3>
-              <h3>{house.rooms} Rooms, {house.bath} bathrooms</h3>
+              <h3>{house.name}</h3>
+              <h4>Location: {house.location}</h4>
+              <h4>Price: ${house.price}</h4>
+              <h4>Size: {house.size} sq ft</h4>
+              <h4>{house.rooms} Rooms, {house.bath} bathrooms</h4>
               {house.available ? <h4>Status: Available</h4> : <h4>Status: Unavailable</h4>}
               <button id='edit-btn' onClick={(event) =>{
                 handleEditFormToggle(house)
@@ -164,7 +176,8 @@ const Houses = (props) => {
                 <label>Rooms: <input defaultValue={house.rooms} onChange={handleNewRoomsNum} text="number"/></label><br/>
                 <label>Bathrooms: <input defaultValue={house.bath} onChange={handleNewBathsNum} text="text"/></label><br/>
                 <label>Image: <input defaultValue={house.image} onChange={handleNewImage} type='text'/></label><br/>
-                <input id='save-change-btn' type='submit' value="Save Changes"/><br/>
+                { house.available ? <button id='status-btn' onClick={(event) => {handleNewStatus(house)}}>Set Status: Unavailable</button> : <button id='status-btn' onClick={(event) => {handleNewStatus(house)}}>Set Status: Available</button> }
+                <input id='save-changes-btn' type='submit' value="Save Changes"/><br/>
                 <button id='cancel-btn' onClick={ (event) => {handleEditFormToggle(house)}}>Cancel</button>
                 <button className='delete' onClick={(event) =>{
                   handleHouseDelete(house)
