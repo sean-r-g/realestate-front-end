@@ -153,8 +153,8 @@ const Houses = (props) => {
       </div> :null}
       <section className='house-container'>
         {houses.map((house) => {
-          return <div key={house._id}>
-              <div className='house-card' >
+          return (
+              <div className='house-card' key={house._id}>
               <img src={house.image}/>
               <h3>{house.name}</h3>
               <h4>Location: {house.location}</h4>
@@ -184,12 +184,11 @@ const Houses = (props) => {
                 }}>Remove Listing</button>
               </form></div> :null} 
               </div> 
-            </div>
+          )
         })}
       </section>
     </div>
   )
-
 }
 
 
