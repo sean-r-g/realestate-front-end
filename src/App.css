@@ -49,6 +49,9 @@ button:hover {
 }
 #about-div {
   animation: fadein 2.5s;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 @keyframes fadein {
   from {opacity: 0;}
