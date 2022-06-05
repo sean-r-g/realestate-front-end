@@ -59,7 +59,7 @@ function App() {
     return (
       <div className='primary-div' id='about-div'>
         <h1>Browse. List. Update.</h1>
-        <p>Welcome to realitive - an open community that allows prospective home owners and sellers to browse an ever-changing collection of houses and condos.</p>
+        <p>Welcome to realitive - an open community that allows real estate enthusiasts, prospective home owners and sellers to browse an ever-changing collection of houses and condos.</p>
         <p>Feel free to review the current listings, add additional ones, or update existing homes as appropriate.
         </p>
         <div className='button-div'>
