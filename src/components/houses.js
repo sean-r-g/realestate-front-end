@@ -134,7 +134,7 @@ const Houses = (props) => {
 
   return (
     <div className="primary-div">
-      <h1>House Listing</h1>
+      <h1>House Listings</h1>
       <button onClick={handleNewFormToggle}>Add New Listing</button>
       {showNewForm ? <div id='new-form-div'>
       <section>
