@@ -22,12 +22,12 @@ header {
   width: 350px;
   border-radius: 45px;
 }
-button {
+button, #save-changes-btn {
   border-radius: 15px;
   padding: 6px;
   font-family: 'Paytone One', sans-serif;
   background-color: #33324e;
-  color: #f5dada
+  color: #f5dada;
 }
 button:hover {
   box-shadow: 2px 2px 2px #F7559A;
@@ -49,6 +49,10 @@ button:hover {
 }
 #about-div {
   animation: fadein 2.5s;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 @keyframes fadein {
   from {opacity: 0;}
@@ -67,7 +71,6 @@ button:hover {
   margin-top: 110px;
   padding: 25px;
   animation: fadein 1s;
-
 }
 h2 {
   text-align: center;
@@ -129,7 +132,14 @@ label {
   width: 250px;
 }
 #save-changes-btn {
-  width: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#save-changes-btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #F7559A;
 }
 .delete {
   display: block;
@@ -137,11 +147,19 @@ label {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+  background-color: #F7559A;
 
 }
 #cancel-btn {
   display: block;
   margin-top: 15px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+#status-btn {
+  display: block;
+  margin-bottom: 15px;
   width: auto;
   margin-left: auto;
   margin-right: auto;
@@ -179,6 +197,83 @@ footer {
 .house-card:hover{
   opacity: 1;
 }
-.house-card h2{
+.house-card h3{
   text-decoration: underline;
+}
+.house-card h4, h3{
+  margin: 5px;
+}
+.next, .previous {
+  margin-top: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.nextbtn, .previousbtn {
+	align-self: center;
+  justify-content: center;
+	padding: 10px;
+	border-radius: 30%;
+	text-align: center;
+	box-shadow: 1px 1px #000000;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #9c98d387;
+}
+.slides-container {
+	position: relative;
+  width: fit-content;
+  height: auto;
+	display: flex;
+	justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.project-screenshots {
+  align-self: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.screenshots {
+	width: 600px;
+	background: #33324e;
+	padding: 10px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px #000000;
+  display: none;
+}
+img:first-of-type {
+	display: block;
+}
+
+#map-div{
+ display: flex;
+ justify-content: flex-start;
+}
+
+@media only screen and (max-width: 750px) {
+  #logo {
+    margin-top: 5px;
+    width: 150px;
+    top: 0;
+    right: 0;
+    /* position: absolute; */
+  }
+  input {
+    width: 100px;
+  }
+  header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .slides-primary {
+    display: none;
+  }
+  .button-div button{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 45px;
+  }
 }
