@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Houses from './components/houses'
 import Condos from './components/condos'
+import $ from 'jquery'
 
 function App() {
 
