@@ -271,4 +271,9 @@ img:first-of-type {
   .slides-primary {
     display: none;
   }
+  .button-div button{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 45px;
+  }
 }
