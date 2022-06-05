@@ -117,7 +117,7 @@ function App() {
       {displayIntro ? <Introduction/> : null}
       {displayHouses ? <Houses/> : null}
       {displayCondos ? <Condos/> : null}
-      <Map/>
+      {/* <Map/> */}
       <footer>
       ©Okeke-Gillis
       </footer>
