@@ -49,6 +49,10 @@ button:hover {
 }
 #about-div {
   animation: fadein 2.5s;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 @keyframes fadein {
   from {opacity: 0;}
@@ -199,13 +203,55 @@ footer {
 .house-card h4, h3{
   margin: 5px;
 }
+.next, .previous {
+  margin-top: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.nextbtn, .previousbtn {
+	align-self: center;
+  justify-content: center;
+	padding: 10px;
+	border-radius: 30%;
+	text-align: center;
+	box-shadow: 1px 1px #000000;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #9c98d387;
+}
+.slides-container {
+	position: relative;
+  width: fit-content;
+  height: auto;
+	display: flex;
+	justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.project-screenshots {
+  align-self: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.screenshots {
+	width: 600px;
+	background: #33324e;
+	padding: 10px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px #000000;
+  display: none;
+}
+img:first-of-type {
+	display: block;
+}
+
 #map-div{
  display: flex;
  justify-content: flex-start;
 }
-
-
-
 
 @media only screen and (max-width: 750px) {
   #logo {
@@ -221,6 +267,9 @@ footer {
   header {
     display: flex;
     justify-content: flex-end;
+  }
+  .slides-primary {
+    display: none;
   }
 }
 
