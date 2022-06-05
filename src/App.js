@@ -4,7 +4,6 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Houses from './components/houses'
 import Condos from './components/condos'
-import $ from 'jquery'
 
 function App() {
 
@@ -30,6 +29,7 @@ function App() {
   }
 
   const Introduction = () =>{
+
     $(() => {
       let currentImgIndex = 0
       let numOfImages = $('.project-screenshots').children().length - 1
@@ -54,7 +54,7 @@ function App() {
         $('.project-screenshots').children().eq(currentImgIndex).css('display', 'block')
       })
     })
-
+    
     return (
       <div className='primary-div' id='about-div'>
         <h1>Browse. List. Update.</h1>
