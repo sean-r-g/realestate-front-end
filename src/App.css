@@ -268,8 +268,24 @@ img:first-of-type {
     display: flex;
     justify-content: flex-end;
   }
-  .slides-primary {
+  /* .slides-primary {
     display: none;
+  } */
+  .screenshots {
+    width: 250px;
+  }
+  .slides-primary {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .nextbtn, .previousbtn {
+    font-size: 14px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  .project-screenshots {
+    margin: 1px;
   }
   .button-div button{
     margin-right: 10px;
