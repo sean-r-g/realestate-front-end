@@ -5,6 +5,7 @@ import axios from 'axios'
 import Houses from './components/houses'
 import Condos from './components/condos'
 import $ from 'jquery'
+import Map from './components/map'
 
 function App() {
 
@@ -93,14 +94,20 @@ function App() {
       </div>
     )
   }
-
-
+  
   return (
     <>
       <head>
       <style>
       @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
       </style>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+        </style>
+        {/* <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABKbDi5X2OD3YBUhfivhusSreZHRPzir4&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script> */}
       </head>
       <header>
       { displayHouses ? <button className='display-btn' onClick={showCondos}>Show Condos</button> : <button className='display-btn' onClick={showHouses}>Show Houses</button>}
@@ -110,6 +117,7 @@ function App() {
       {displayIntro ? <Introduction/> : null}
       {displayHouses ? <Houses/> : null}
       {displayCondos ? <Condos/> : null}
+      <Map/>
       <footer>
       ©Okeke-Gillis
       </footer>
@@ -118,3 +126,5 @@ function App() {
 }
 
 export default App;
+
+
